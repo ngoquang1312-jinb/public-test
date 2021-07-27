@@ -276,19 +276,19 @@
                             .concat(e.textContent.trim(), "\r\n");
                         }));
                   } else {
-                    var g = document.querySelector(
+                    var l = document.querySelector(
                       "[og-intent='" + c.name + "']"
                     );
-                    null !== g && void 0 !== g && (s = g.textContent.trim());
+                    null !== l && void 0 !== l && (s = l.textContent.trim());
                   }
                 else if (
                   void 0 === c &&
                   void 0 !== e &&
                   "ArticleIntent" === e.name
                 ) {
-                  var l = document.querySelectorAll("article h1"),
+                  var g = document.querySelectorAll("article h1"),
                     v = [];
-                  l.forEach(function (e) {
+                  g.forEach(function (e) {
                     v.push(e.textContent.trim());
                   });
                   var u = i.findBestMatch(a, v);
@@ -415,7 +415,12 @@
                 document
                   .getElementById("microphone")
                   .addEventListener("click", function () {
-                    if (1 === o) return (o = 0), e.stop();
+                    if (
+                      (alert("bibibibi"),
+                      console.log(o, "TUS TUS TUS"),
+                      1 === o)
+                    )
+                      return (o = 0), e.stop();
                     var t = document.querySelectorAll(
                       ".the_activeintent_voice_flex.the_activeintent_display_none"
                     );
