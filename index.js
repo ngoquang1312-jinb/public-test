@@ -210,7 +210,8 @@
         );
       }
       var r = n(0),
-        i = function App(e) {
+        i = 0,
+        o = function App(e) {
           var t = this;
           !(function (e, t) {
             if (!(e instanceof t))
@@ -254,120 +255,114 @@
               var e,
                 n = t.findTheIntent;
               (t.recognition.onstart = function () {
-                (document.getElementsByClassName(
+                document.getElementsByClassName(
                   "the_activeintent_permission"
-                )[0].style.display = "none"),
-                  console.log("onstart");
+                )[0].style.display = "none";
               }),
                 (t.recognition.onaudiostart = function () {
-                  (document.getElementsByClassName(
+                  document.getElementsByClassName(
                     "the_activeintent_listening"
-                  )[0].style.display = "block"),
-                    console.log(
-                      "\u0110ANG B\u1eaeT \u0110\u1ea6U THU \xc2M THANH"
-                    );
+                  )[0].style.display = "block";
                 }),
                 (t.recognition.onresult = function (t) {
-                  var i = t.results.length - 1,
-                    o = t.results[i][0].transcript.trim(),
-                    a = n(o),
-                    c = "";
-                  if (void 0 !== a)
-                    if (((e = a), "ArticleIntent" === a.name)) {
-                      var A = document.querySelectorAll("article h1");
-                      0 === A.length
-                        ? (c = "There are no articles")
-                        : ((c = "There are ".concat(
-                            A.length,
+                  i = 0;
+                  var o = t.results.length - 1,
+                    a = t.results[o][0].transcript.trim(),
+                    c = n(a),
+                    A = "";
+                  if (void 0 !== c)
+                    if (((e = c), "ArticleIntent" === c.name)) {
+                      var s = document.querySelectorAll("article h1");
+                      0 === s.length
+                        ? (A = "There are no articles")
+                        : ((A = "There are ".concat(
+                            s.length,
                             " articles. Choose any one.\r\n"
                           )),
-                          A.forEach(function (e, t) {
-                            c += ""
+                          s.forEach(function (e, t) {
+                            A += ""
                               .concat(t + 1, " ")
                               .concat(e.textContent.trim(), "\r\n");
                           }));
                     } else {
-                      var s = document.querySelector(
-                        "[og-intent='" + a.name + "']"
+                      var g = document.querySelector(
+                        "[og-intent='" + c.name + "']"
                       );
-                      null !== s && void 0 !== s && (c = s.textContent.trim());
+                      null !== g && void 0 !== g && (A = g.textContent.trim());
                     }
                   else if (
-                    void 0 === a &&
+                    void 0 === c &&
                     void 0 !== e &&
                     "ArticleIntent" === e.name
                   ) {
-                    var g = document.querySelectorAll("article h1"),
-                      u = [];
-                    g.forEach(function (e) {
-                      u.push(e.textContent.trim());
+                    var u = document.querySelectorAll("article h1"),
+                      w = [];
+                    u.forEach(function (e) {
+                      w.push(e.textContent.trim());
                     });
-                    var w = r.findBestMatch(o, u);
-                    c =
-                      0 !== w.bestMatchIndex
+                    var d = r.findBestMatch(a, w);
+                    A =
+                      0 !== d.bestMatchIndex
                         ? document
                             .querySelectorAll("article p")
-                            [w.bestMatchIndex].textContent.trim()
-                        : "No Articles found with ".concat(o);
-                  } else c = "We haven't set it up";
+                            [d.bestMatchIndex].textContent.trim()
+                        : "No Articles found with ".concat(a);
+                  } else A = "We haven't set it up";
                   if (
-                    void 0 !== a &&
-                    void 0 !== a.type &&
-                    "action" === a.type
+                    void 0 !== c &&
+                    void 0 !== c.type &&
+                    "action" === c.type
                   ) {
                     var l,
-                      d = _createForOfIteratorHelper(a.phrases);
+                      p = _createForOfIteratorHelper(c.phrases);
                     try {
-                      for (d.s(); !(l = d.n()).done; ) {
-                        var p = l.value;
-                        o = o.replace(p, "");
+                      for (p.s(); !(l = p.n()).done; ) {
+                        var B = l.value;
+                        a = a.replace(B, "");
                       }
-                    } catch (f) {
-                      d.e(f);
+                    } catch (v) {
+                      p.e(v);
                     } finally {
-                      d.f();
+                      p.f();
                     }
                     var h,
-                      B = _createForOfIteratorHelper(
+                      m = _createForOfIteratorHelper(
                         document.querySelectorAll(
-                          "[og-intent='" + a.name + "']"
+                          "[og-intent='" + c.name + "']"
                         )
                       );
                     try {
-                      for (B.s(); !(h = B.n()).done; ) {
-                        var m = h.value;
-                        o.trim().toLowerCase() ===
-                          m.textContent.trim().toLowerCase() && m.click();
+                      for (m.s(); !(h = m.n()).done; ) {
+                        var f = h.value;
+                        a.trim().toLowerCase() ===
+                          f.textContent.trim().toLowerCase() && f.click();
                       }
-                    } catch (f) {
-                      B.e(f);
+                    } catch (v) {
+                      m.e(v);
                     } finally {
-                      B.f();
+                      m.f();
                     }
                   } else
                     speechSynthesis.cancel(),
-                      speechSynthesis.speak(new SpeechSynthesisUtterance(c));
+                      speechSynthesis.speak(new SpeechSynthesisUtterance(A));
                 }),
                 (t.recognition.onaudioend = function () {
-                  (document.getElementsByClassName(
-                    "the_activeintent_listening"
-                  )[0].style.display = "none"),
-                    console.log("\u0110\xe3 k\u1ebft th\xfac thu \xe2m thanh");
-                }),
-                (t.recognition.onend = function () {
-                  (document.getElementsByClassName(
-                    "the_activeintent_permission"
-                  )[0].style.display = "none"),
+                  (i = 0),
                     (document.getElementsByClassName(
                       "the_activeintent_listening"
+                    )[0].style.display = "none");
+                }),
+                (t.recognition.onend = function () {
+                  (i = 0),
+                    (document.getElementsByClassName(
+                      "the_activeintent_permission"
                     )[0].style.display = "none"),
-                    console.log("onend");
+                    (document.getElementsByClassName(
+                      "the_activeintent_listening"
+                    )[0].style.display = "none");
                 }),
                 (t.recognition.onerror = function (e) {
-                  console.log(
-                    e.error,
-                    "L\u1ed6I KHI KH\xd4NG \u0110\u01af\u1ee2C H\u1ed6 TR\u1ee2"
-                  );
+                  i = 0;
                 });
             }),
             _defineProperty(this, "addMicrophoneElement", function () {
@@ -405,14 +400,20 @@
                 try {
                   for (r.s(); !(n = r.n()).done; ) {
                     n.value.addEventListener("click", function () {
-                      (document.getElementsByClassName(
-                        "the_activeintent_permission"
-                      )[0].style.display = "block"),
-                        e.start();
+                      if (
+                        ((document.getElementsByClassName(
+                          "the_activeintent_permission"
+                        )[0].style.display = "block"),
+                        1 === i)
+                      )
+                        return (
+                          console.log("\u0110ang n\xf3i"), (i = 0), e.stop()
+                        );
+                      e.start(), (i = 1);
                     });
                   }
-                } catch (a) {
-                  r.e(a);
+                } catch (c) {
+                  r.e(c);
                 } finally {
                   r.f();
                 }
@@ -422,23 +423,23 @@
                   t = /Chrome/i.test(navigator.userAgent);
                 !e && t && speechSynthesis.pause(), speechSynthesis.resume();
               }, 1e4);
-              var i,
-                o = _createForOfIteratorHelper(
+              var o,
+                a = _createForOfIteratorHelper(
                   document.querySelectorAll(".speaker")
                 );
               try {
-                for (o.s(); !(i = o.n()).done; ) {
-                  i.value.addEventListener("click", function () {
+                for (a.s(); !(o = a.n()).done; ) {
+                  o.value.addEventListener("click", function () {
                     speechSynthesis.cancel();
                     var e =
                       this.parentElement.parentElement.parentElement.textContent.trim();
                     speechSynthesis.speak(new SpeechSynthesisUtterance(e));
                   });
                 }
-              } catch (a) {
-                o.e(a);
+              } catch (c) {
+                a.e(c);
               } finally {
-                o.f();
+                a.f();
               }
             }),
             (this.intents = e),
@@ -452,18 +453,18 @@
             (n.rel = "stylesheet"),
             (n.href =
               "https://cdn.jsdelivr.net/gh/ngoquang1312-jinb/public-test@3.7/activeintent.css");
-          var i = document.querySelector("script");
-          i.parentNode.insertBefore(n, i),
+          var o = document.querySelector("script");
+          o.parentNode.insertBefore(n, o),
             window.hasOwnProperty("webkitSpeechGrammarList") &&
               ((this.speechRecognitionList =
                 new window.webkitSpeechGrammarList()),
               this.speechRecognitionList.addFromString("#JSGF V1.0;", 1),
               (this.recognition.grammars = this.speechRecognitionList));
-          var o = window.document.getElementById("ActiveIntent");
-          o && (this.activationKey = o.getAttribute("activationKey")),
+          var a = window.document.getElementById("ActiveIntent");
+          a && (this.activationKey = a.getAttribute("activationKey")),
             this.activationKey && this.usingSDKRequest();
         };
-      t.default = i;
+      t.default = o;
     },
   ]);
 });
