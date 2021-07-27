@@ -90,9 +90,9 @@
           n.set(i, o);
         }
         for (var a = 0, c = 0; c < t.length - 1; c++) {
-          var A = t.substring(c, c + 2),
-            s = n.has(A) ? n.get(A) : 0;
-          s > 0 && (n.set(A, s - 1), a++);
+          var s = t.substring(c, c + 2),
+            A = n.has(s) ? n.get(s) : 0;
+          A > 0 && (n.set(s, A - 1), a++);
         }
         return (2 * a) / (e.length + t.length - 2);
       }
@@ -239,14 +239,14 @@
                       var c = o.value;
                       if (e.startsWith(c)) return i;
                     }
-                  } catch (A) {
-                    a.e(A);
+                  } catch (s) {
+                    a.e(s);
                   } finally {
                     a.f();
                   }
                 }
-              } catch (A) {
-                r.e(A);
+              } catch (s) {
+                r.e(s);
               } finally {
                 r.f();
               }
@@ -263,24 +263,43 @@
                   document.getElementsByClassName(
                     "the_activeintent_listening"
                   )[0].style.display = "block";
+                  var e = document.getElementsByClassName(
+                    "the_activeintent_image"
+                  )[0];
+                  (e.src = "../src/lib/assets/record.gif"),
+                    (e.style.width = "70px"),
+                    (window.dotsGoingUp = !0),
+                    window.setInterval(function () {
+                      var e = document.getElementsByClassName(
+                        "the_activeintent_int"
+                      )[0];
+                      window.dotsGoingUp
+                        ? (e.innerHTML += ".")
+                        : ((e.innerHTML = e.innerHTML.substring(
+                            1,
+                            e.innerHTML.length
+                          )),
+                          "" === e.innerHTML && (window.dotsGoingUp = !0)),
+                        e.innerHTML.length > 3 && (window.dotsGoingUp = !1);
+                    }, 400);
                 }),
                 (t.recognition.onresult = function (t) {
                   i = 0;
                   var o = t.results.length - 1,
                     a = t.results[o][0].transcript.trim(),
                     c = n(a),
-                    A = "";
+                    s = "";
                   if (void 0 !== c)
                     if (((e = c), "ArticleIntent" === c.name)) {
-                      var s = document.querySelectorAll("article h1");
-                      0 === s.length
-                        ? (A = "There are no articles")
-                        : ((A = "There are ".concat(
-                            s.length,
+                      var A = document.querySelectorAll("article h1");
+                      0 === A.length
+                        ? (s = "There are no articles")
+                        : ((s = "There are ".concat(
+                            A.length,
                             " articles. Choose any one.\r\n"
                           )),
-                          s.forEach(function (e, t) {
-                            A += ""
+                          A.forEach(function (e, t) {
+                            s += ""
                               .concat(t + 1, " ")
                               .concat(e.textContent.trim(), "\r\n");
                           }));
@@ -288,7 +307,7 @@
                       var g = document.querySelector(
                         "[og-intent='" + c.name + "']"
                       );
-                      null !== g && void 0 !== g && (A = g.textContent.trim());
+                      null !== g && void 0 !== g && (s = g.textContent.trim());
                     }
                   else if (
                     void 0 === c &&
@@ -296,18 +315,18 @@
                     "ArticleIntent" === e.name
                   ) {
                     var u = document.querySelectorAll("article h1"),
-                      w = [];
+                      d = [];
                     u.forEach(function (e) {
-                      w.push(e.textContent.trim());
+                      d.push(e.textContent.trim());
                     });
-                    var d = r.findBestMatch(a, w);
-                    A =
-                      0 !== d.bestMatchIndex
+                    var w = r.findBestMatch(a, d);
+                    s =
+                      0 !== w.bestMatchIndex
                         ? document
                             .querySelectorAll("article p")
-                            [d.bestMatchIndex].textContent.trim()
+                            [w.bestMatchIndex].textContent.trim()
                         : "No Articles found with ".concat(a);
-                  } else A = "We haven't set it up";
+                  } else s = "We haven't set it up";
                   if (
                     void 0 !== c &&
                     void 0 !== c.type &&
@@ -320,8 +339,8 @@
                         var B = l.value;
                         a = a.replace(B, "");
                       }
-                    } catch (v) {
-                      p.e(v);
+                    } catch (f) {
+                      p.e(f);
                     } finally {
                       p.f();
                     }
@@ -333,18 +352,18 @@
                       );
                     try {
                       for (m.s(); !(h = m.n()).done; ) {
-                        var f = h.value;
+                        var v = h.value;
                         a.trim().toLowerCase() ===
-                          f.textContent.trim().toLowerCase() && f.click();
+                          v.textContent.trim().toLowerCase() && v.click();
                       }
-                    } catch (v) {
-                      m.e(v);
+                    } catch (f) {
+                      m.e(f);
                     } finally {
                       m.f();
                     }
                   } else
                     speechSynthesis.cancel(),
-                      speechSynthesis.speak(new SpeechSynthesisUtterance(A));
+                      speechSynthesis.speak(new SpeechSynthesisUtterance(s));
                 }),
                 (t.recognition.onaudioend = function () {
                   (i = 0),
@@ -360,6 +379,11 @@
                     (document.getElementsByClassName(
                       "the_activeintent_listening"
                     )[0].style.display = "none");
+                  var e = document.getElementsByClassName(
+                    "the_activeintent_image"
+                  )[0];
+                  (e.src = "../src/lib/assets/record_default.svg"),
+                    (e.style.width = "60px");
                 }),
                 (t.recognition.onerror = function (e) {
                   i = 0;
@@ -368,7 +392,7 @@
             _defineProperty(this, "addMicrophoneElement", function () {
               var e = document.createElement("div");
               (e.innerHTML =
-                '<div class="the_activeintent" style="position: fixed;bottom: 5%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 25px;width: 198px;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px;display:none">Listening</div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">  <g id="Group_2" data-name="Group 2" transform="translate(-301 -110)">    <circle id="Ellipse_1" data-name="Ellipse 1" cx="35.5" cy="35.5" r="35.5" transform="translate(301 110)" fill="#0a8cc7"/>    <path id="Icon_awesome-microphone-alt" data-name="Icon awesome-microphone-alt" d="M28.8,16.459H27.432a1.371,1.371,0,0,0-1.372,1.372v4.115a10.985,10.985,0,0,1-12.069,10.92c-5.7-.556-9.876-5.681-9.876-11.408V17.831a1.371,1.371,0,0,0-1.372-1.372H1.372A1.371,1.371,0,0,0,0,17.831v3.443c0,7.684,5.484,14.535,13.03,15.575v2.927H8.23a1.371,1.371,0,0,0-1.372,1.372v1.372A1.371,1.371,0,0,0,8.23,43.891H21.946a1.371,1.371,0,0,0,1.372-1.372V41.148a1.371,1.371,0,0,0-1.372-1.372h-4.8V36.881a15.1,15.1,0,0,0,13.03-14.936V17.831A1.371,1.371,0,0,0,28.8,16.459ZM15.088,30.175a8.23,8.23,0,0,0,8.23-8.23H16c-.5,0-.915-.307-.915-.686V19.888c0-.379.41-.686.915-.686h7.315V16.459H16c-.5,0-.915-.307-.915-.686V14.4c0-.379.41-.686.915-.686h7.315V10.973H16c-.5,0-.915-.307-.915-.686V8.915c0-.379.41-.686.915-.686h7.315a8.23,8.23,0,1,0-16.459,0V21.946A8.23,8.23,0,0,0,15.088,30.175Z" transform="translate(321.574 123.716)" fill="#fff"/>  </g></svg></button></div></div></div>'),
+                '<div class="the_activeintent" style="position: fixed;bottom: 5%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div style="position: absolute;right: 100%;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 25px;width: 198px;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px;display:none">Listening<span class="the_activeintent_int" style="padding-left:5px">.</span></div></div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;"><img class="the_activeintent_image" src="../src/lib/assets/record_default.svg" width="60px" /></button></div></div></div>'),
                 document.body.appendChild(e);
             }),
             _defineProperty(this, "addSpeakerElements", function () {
@@ -445,21 +469,14 @@
               ((this.recognition = new window.webkitSpeechRecognition()),
               (this.recognition.lang = "en-US"),
               (this.recognition.interimResults = !1),
-              (this.recognition.continuous = !1));
-          var n = document.createElement("link");
-          (n.type = "text/css"),
-            (n.rel = "stylesheet"),
-            (n.href =
-              "https://cdn.jsdelivr.net/gh/ngoquang1312-jinb/public-test@3.7/activeintent.css");
-          var o = document.querySelector("script");
-          o.parentNode.insertBefore(n, o),
+              (this.recognition.continuous = !1)),
             window.hasOwnProperty("webkitSpeechGrammarList") &&
               ((this.speechRecognitionList =
                 new window.webkitSpeechGrammarList()),
               this.speechRecognitionList.addFromString("#JSGF V1.0;", 1),
               (this.recognition.grammars = this.speechRecognitionList));
-          var a = window.document.getElementById("ActiveIntent");
-          a && (this.activationKey = a.getAttribute("activationKey")),
+          var n = window.document.getElementById("ActiveIntent");
+          n && (this.activationKey = n.getAttribute("activationKey")),
             this.activationKey && this.usingSDKRequest();
         };
       t.default = o;
