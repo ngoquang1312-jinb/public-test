@@ -488,7 +488,7 @@
           (n.type = "text/css"),
             (n.rel = "stylesheet"),
             (n.href =
-              "https://cdn.jsdelivr.net/gh/ngoquang1312-jinb/public-test@1.9/activeintent.css");
+              "https://cdn.jsdelivr.net/gh/ngoquang1312-jinb/public-test@2.2/activeintent.css");
           var a = document.querySelector("script");
           a.parentNode.insertBefore(n, a),
             window.hasOwnProperty("webkitSpeechGrammarList") &&
