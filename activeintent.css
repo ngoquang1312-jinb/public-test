@@ -1,60 +1,12 @@
-button:focus-visible {
-  outline: none;
-}
-
-@keyframes cycle-colors {
-  0% {
-    border-color: hsl(0, 100%, 50%);
-  }
-  25% {
-    border-color: hsl(90, 100%, 50%);
-  }
-  50% {
-    border-color: hsl(180, 100%, 50%);
-  }
-  75% {
-    border-color: hsl(270, 100%, 50%);
-  }
-  100% {
-    border-color: hsl(360, 100%, 50%);
-  }
-}
-
-@keyframes pulse {
-  to {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-.the_activeintent_avatar::after {
-  animation-delay: 1s;
-}
-
-.the_activeintent_avatar_voice::before,
-.the_activeintent_avatar_voice::after {
-  animation: pulse 2s linear infinite;
-  border: #0a8cc7 solid 8px;
-  border-radius: 9999px;
-  box-sizing: border-box;
-  content: " ";
-  height: 90px;
-  right: -9px;
-  opacity: 0.8;
-  position: absolute;
-  top: -10px;
-  transform: scale(0.714);
-  width: 90px;
-  z-index: 1;
-}
-
-.the_activeintent_loading:after {
+/* Loading CSS */
+.the_activeintent_listening:after {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
   -webkit-animation: ellipsis steps(4, end) 900ms infinite;
   animation: ellipsis steps(4, end) 900ms infinite;
-  content: "\2026"; /* ascii code for the ellipsis character */
+  content: "\2026";
+  padding-left: 5px;
   width: 0px;
 }
 
@@ -69,39 +21,7 @@ button:focus-visible {
     width: 1.25em;
   }
 }
-
-.the_activeintent_voice_flex {
-  background: #eaeef5;
-  color: #515151;
-  padding: 20px;
-  border-radius: 13px;
-  line-height: 20px;
-  left: -40px;
-  position: relative;
-  top: -40px;
-  text-align: left;
-  font-size: 15px;
-  width: 100%;
-}
-
-.the_activeintent_top_60 {
-  top: -60px;
-}
-
-.the_activeintent_voice_flex_top_0 {
-  top: 5px;
-  height: 20px;
-}
-
-.the_activeintent_right_svg {
-  position: absolute;
-  right: -25px;
-  bottom: 0px;
-}
-
-.the_activeintent_right_svg_none {
-  display: none;
-}
+/* End Loading CSS */
 
 .the_activeintent_display_none {
   display: none;
