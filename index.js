@@ -256,15 +256,13 @@
               (t.recognition.onstart = function () {
                 (document.getElementsByClassName(
                   "the_activeintent_permission"
-                )[0].className += " the_activeintent_display_none"),
+                )[0].style.display = "none"),
                   console.log("onstart");
               }),
                 (t.recognition.onaudiostart = function () {
-                  var e = document.querySelectorAll(
-                    ".the_activeintent_listening.the_activeintent_display_none"
-                  );
-                  e.length > 0 &&
-                    e[0].classList.remove("the_activeintent_display_none"),
+                  (document.getElementsByClassName(
+                    "the_activeintent_listening"
+                  )[0].style.display = "block"),
                     console.log(
                       "\u0110ANG B\u1eaeT \u0110\u1ea6U THU \xc2M THANH"
                     );
@@ -304,12 +302,12 @@
                     g.forEach(function (e) {
                       u.push(e.textContent.trim());
                     });
-                    var l = r.findBestMatch(o, u);
+                    var w = r.findBestMatch(o, u);
                     c =
-                      0 !== l.bestMatchIndex
+                      0 !== w.bestMatchIndex
                         ? document
                             .querySelectorAll("article p")
-                            [l.bestMatchIndex].textContent.trim()
+                            [w.bestMatchIndex].textContent.trim()
                         : "No Articles found with ".concat(o);
                   } else c = "We haven't set it up";
                   if (
@@ -317,32 +315,32 @@
                     void 0 !== a.type &&
                     "action" === a.type
                   ) {
-                    var w,
+                    var l,
                       d = _createForOfIteratorHelper(a.phrases);
                     try {
-                      for (d.s(); !(w = d.n()).done; ) {
-                        var h = w.value;
-                        o = o.replace(h, "");
+                      for (d.s(); !(l = d.n()).done; ) {
+                        var p = l.value;
+                        o = o.replace(p, "");
                       }
-                    } catch (v) {
-                      d.e(v);
+                    } catch (f) {
+                      d.e(f);
                     } finally {
                       d.f();
                     }
-                    var p,
+                    var h,
                       B = _createForOfIteratorHelper(
                         document.querySelectorAll(
                           "[og-intent='" + a.name + "']"
                         )
                       );
                     try {
-                      for (B.s(); !(p = B.n()).done; ) {
-                        var m = p.value;
+                      for (B.s(); !(h = B.n()).done; ) {
+                        var m = h.value;
                         o.trim().toLowerCase() ===
                           m.textContent.trim().toLowerCase() && m.click();
                       }
-                    } catch (v) {
-                      B.e(v);
+                    } catch (f) {
+                      B.e(f);
                     } finally {
                       B.f();
                     }
@@ -353,16 +351,16 @@
                 (t.recognition.onaudioend = function () {
                   (document.getElementsByClassName(
                     "the_activeintent_listening"
-                  )[0].className += " the_activeintent_display_none"),
+                  )[0].style.display = "none"),
                     console.log("\u0110\xe3 k\u1ebft th\xfac thu \xe2m thanh");
                 }),
                 (t.recognition.onend = function () {
                   (document.getElementsByClassName(
                     "the_activeintent_permission"
-                  )[0].className += " the_activeintent_display_none"),
+                  )[0].style.display = "none"),
                     (document.getElementsByClassName(
-                      "the_activeintent_the_activeintent_listening"
-                    )[0].className += " the_activeintent_display_none"),
+                      "the_activeintent_listening"
+                    )[0].style.display = "none"),
                     console.log("onend");
                 }),
                 (t.recognition.onerror = function (e) {
@@ -375,7 +373,7 @@
             _defineProperty(this, "addMicrophoneElement", function () {
               var e = document.createElement("div");
               (e.innerHTML =
-                '<div class="the_activeintent" style="position: fixed;bottom: 5%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div class="the_activeintent_permission the_activeintent_display_none"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 25px;width: 198px">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening the_activeintent_display_none"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px">Listening</div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">  <g id="Group_2" data-name="Group 2" transform="translate(-301 -110)">    <circle id="Ellipse_1" data-name="Ellipse 1" cx="35.5" cy="35.5" r="35.5" transform="translate(301 110)" fill="#0a8cc7"/>    <path id="Icon_awesome-microphone-alt" data-name="Icon awesome-microphone-alt" d="M28.8,16.459H27.432a1.371,1.371,0,0,0-1.372,1.372v4.115a10.985,10.985,0,0,1-12.069,10.92c-5.7-.556-9.876-5.681-9.876-11.408V17.831a1.371,1.371,0,0,0-1.372-1.372H1.372A1.371,1.371,0,0,0,0,17.831v3.443c0,7.684,5.484,14.535,13.03,15.575v2.927H8.23a1.371,1.371,0,0,0-1.372,1.372v1.372A1.371,1.371,0,0,0,8.23,43.891H21.946a1.371,1.371,0,0,0,1.372-1.372V41.148a1.371,1.371,0,0,0-1.372-1.372h-4.8V36.881a15.1,15.1,0,0,0,13.03-14.936V17.831A1.371,1.371,0,0,0,28.8,16.459ZM15.088,30.175a8.23,8.23,0,0,0,8.23-8.23H16c-.5,0-.915-.307-.915-.686V19.888c0-.379.41-.686.915-.686h7.315V16.459H16c-.5,0-.915-.307-.915-.686V14.4c0-.379.41-.686.915-.686h7.315V10.973H16c-.5,0-.915-.307-.915-.686V8.915c0-.379.41-.686.915-.686h7.315a8.23,8.23,0,1,0-16.459,0V21.946A8.23,8.23,0,0,0,15.088,30.175Z" transform="translate(321.574 123.716)" fill="#fff"/>  </g></svg></button></div></div></div>'),
+                '<div class="the_activeintent" style="position: fixed;bottom: 5%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 25px;width: 198px;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px;display:none">Listening</div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">  <g id="Group_2" data-name="Group 2" transform="translate(-301 -110)">    <circle id="Ellipse_1" data-name="Ellipse 1" cx="35.5" cy="35.5" r="35.5" transform="translate(301 110)" fill="#0a8cc7"/>    <path id="Icon_awesome-microphone-alt" data-name="Icon awesome-microphone-alt" d="M28.8,16.459H27.432a1.371,1.371,0,0,0-1.372,1.372v4.115a10.985,10.985,0,0,1-12.069,10.92c-5.7-.556-9.876-5.681-9.876-11.408V17.831a1.371,1.371,0,0,0-1.372-1.372H1.372A1.371,1.371,0,0,0,0,17.831v3.443c0,7.684,5.484,14.535,13.03,15.575v2.927H8.23a1.371,1.371,0,0,0-1.372,1.372v1.372A1.371,1.371,0,0,0,8.23,43.891H21.946a1.371,1.371,0,0,0,1.372-1.372V41.148a1.371,1.371,0,0,0-1.372-1.372h-4.8V36.881a15.1,15.1,0,0,0,13.03-14.936V17.831A1.371,1.371,0,0,0,28.8,16.459ZM15.088,30.175a8.23,8.23,0,0,0,8.23-8.23H16c-.5,0-.915-.307-.915-.686V19.888c0-.379.41-.686.915-.686h7.315V16.459H16c-.5,0-.915-.307-.915-.686V14.4c0-.379.41-.686.915-.686h7.315V10.973H16c-.5,0-.915-.307-.915-.686V8.915c0-.379.41-.686.915-.686h7.315a8.23,8.23,0,1,0-16.459,0V21.946A8.23,8.23,0,0,0,15.088,30.175Z" transform="translate(321.574 123.716)" fill="#fff"/>  </g></svg></button></div></div></div>'),
                 document.body.appendChild(e);
             }),
             _defineProperty(this, "addSpeakerElements", function () {
@@ -407,11 +405,9 @@
                 try {
                   for (r.s(); !(n = r.n()).done; ) {
                     n.value.addEventListener("click", function () {
-                      var t = document.querySelectorAll(
-                        ".the_activeintent_permission.the_activeintent_display_none"
-                      );
-                      t.length > 0 &&
-                        t[0].classList.remove("the_activeintent_display_none"),
+                      (document.getElementsByClassName(
+                        "the_activeintent_permission"
+                      )[0].style.display = "block"),
                         e.start();
                     });
                   }
@@ -455,7 +451,7 @@
           (n.type = "text/css"),
             (n.rel = "stylesheet"),
             (n.href =
-              "https://cdn.jsdelivr.net/gh/ngoquang1312-jinb/public-test@3.6/activeintent.css");
+              "https://cdn.jsdelivr.net/gh/ngoquang1312-jinb/public-test@3.7/activeintent.css");
           var i = document.querySelector("script");
           i.parentNode.insertBefore(n, i),
             window.hasOwnProperty("webkitSpeechGrammarList") &&
