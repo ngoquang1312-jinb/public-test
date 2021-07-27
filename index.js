@@ -385,7 +385,7 @@
             _defineProperty(this, "addMicrophoneElement", function () {
               var e = document.createElement("div");
               (e.innerHTML =
-                '<div class="the_activeintent" style="position: fixed; top: 85%; right: 5%">    <button style=\'padding: 0;border: none;background: none;cursor: pointer;\'>      <div style="display: flex">        <div class="the_activeintent_voice_flex the_activeintent_display_none the_activeintent_top_60"><span id="the_activeintent_text_voice"></span>          <div class="the_activeintent_right_svg"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg></div>        </div>        <div id="microphone" class="the_activeintent_avatar"><svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">  <g id="Group_2" data-name="Group 2" transform="translate(-301 -110)">    <circle id="Ellipse_1" data-name="Ellipse 1" cx="35.5" cy="35.5" r="35.5" transform="translate(301 110)" fill="#0a8cc7"/>    <path id="Icon_awesome-microphone-alt" data-name="Icon awesome-microphone-alt" d="M28.8,16.459H27.432a1.371,1.371,0,0,0-1.372,1.372v4.115a10.985,10.985,0,0,1-12.069,10.92c-5.7-.556-9.876-5.681-9.876-11.408V17.831a1.371,1.371,0,0,0-1.372-1.372H1.372A1.371,1.371,0,0,0,0,17.831v3.443c0,7.684,5.484,14.535,13.03,15.575v2.927H8.23a1.371,1.371,0,0,0-1.372,1.372v1.372A1.371,1.371,0,0,0,8.23,43.891H21.946a1.371,1.371,0,0,0,1.372-1.372V41.148a1.371,1.371,0,0,0-1.372-1.372h-4.8V36.881a15.1,15.1,0,0,0,13.03-14.936V17.831A1.371,1.371,0,0,0,28.8,16.459ZM15.088,30.175a8.23,8.23,0,0,0,8.23-8.23H16c-.5,0-.915-.307-.915-.686V19.888c0-.379.41-.686.915-.686h7.315V16.459H16c-.5,0-.915-.307-.915-.686V14.4c0-.379.41-.686.915-.686h7.315V10.973H16c-.5,0-.915-.307-.915-.686V8.915c0-.379.41-.686.915-.686h7.315a8.23,8.23,0,1,0-16.459,0V21.946A8.23,8.23,0,0,0,15.088,30.175Z" transform="translate(321.574 123.716)" fill="#fff"/>  </g></svg></div>      </div>    </button>  </div>'),
+                '<div id="microphone" class="the_activeintent" style="position: fixed; top: 85%; right: 5%">    <button style=\'padding: 0;border: none;background: none;cursor: pointer;\'>      <div style="display: flex">        <div class="the_activeintent_voice_flex the_activeintent_display_none the_activeintent_top_60"><span id="the_activeintent_text_voice"></span>          <div class="the_activeintent_right_svg"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg></div>        </div>        <div class="the_activeintent_avatar"><svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">  <g id="Group_2" data-name="Group 2" transform="translate(-301 -110)">    <circle id="Ellipse_1" data-name="Ellipse 1" cx="35.5" cy="35.5" r="35.5" transform="translate(301 110)" fill="#0a8cc7"/>    <path id="Icon_awesome-microphone-alt" data-name="Icon awesome-microphone-alt" d="M28.8,16.459H27.432a1.371,1.371,0,0,0-1.372,1.372v4.115a10.985,10.985,0,0,1-12.069,10.92c-5.7-.556-9.876-5.681-9.876-11.408V17.831a1.371,1.371,0,0,0-1.372-1.372H1.372A1.371,1.371,0,0,0,0,17.831v3.443c0,7.684,5.484,14.535,13.03,15.575v2.927H8.23a1.371,1.371,0,0,0-1.372,1.372v1.372A1.371,1.371,0,0,0,8.23,43.891H21.946a1.371,1.371,0,0,0,1.372-1.372V41.148a1.371,1.371,0,0,0-1.372-1.372h-4.8V36.881a15.1,15.1,0,0,0,13.03-14.936V17.831A1.371,1.371,0,0,0,28.8,16.459ZM15.088,30.175a8.23,8.23,0,0,0,8.23-8.23H16c-.5,0-.915-.307-.915-.686V19.888c0-.379.41-.686.915-.686h7.315V16.459H16c-.5,0-.915-.307-.915-.686V14.4c0-.379.41-.686.915-.686h7.315V10.973H16c-.5,0-.915-.307-.915-.686V8.915c0-.379.41-.686.915-.686h7.315a8.23,8.23,0,1,0-16.459,0V21.946A8.23,8.23,0,0,0,15.088,30.175Z" transform="translate(321.574 123.716)" fill="#fff"/>  </g></svg></div>      </div>    </button>  </div>'),
                 document.body.appendChild(e);
             }),
             _defineProperty(this, "addSpeakerElements", function () {
@@ -411,51 +411,49 @@
             }),
             _defineProperty(this, "addListener", function () {
               var e = t.recognition;
-              console.log(e, "recognitionrecognition"),
-                t.recognition &&
-                  document
-                    .getElementById("microphone")
-                    .addEventListener("click", function () {
-                      if (
-                        (alert("bibibibi"), console.log(o, "log log"), 1 === o)
-                      )
-                        return (o = 0), e.stop();
-                      var t = document.querySelectorAll(
-                        ".the_activeintent_voice_flex.the_activeintent_display_none"
-                      );
-                      t.length > 0 &&
-                        t[0].classList.remove("the_activeintent_display_none"),
-                        (document.getElementById(
-                          "the_activeintent_text_voice"
-                        ).innerHTML =
-                          "Enable permissions on the upper left of your browser window"),
-                        e.start(),
-                        (o = 1),
-                        (e.onstart = function () {
-                          var e = document.getElementsByClassName(
-                            "the_activeintent_voice_flex"
-                          );
-                          e.length > 0 &&
-                            (e[0].className +=
-                              " the_activeintent_voice_flex_top_0");
-                          var t = document.getElementsByClassName(
-                            "the_activeintent_right_svg"
-                          );
-                          t.length > 0 &&
-                            (t[0].className +=
-                              " the_activeintent_right_svg_none");
-                          var n = document.getElementsByClassName(
-                            "the_activeintent_avatar"
-                          );
-                          n.length > 0 &&
-                            (n[0].className +=
-                              " the_activeintent_avatar_voice"),
-                            (document.getElementById(
-                              "the_activeintent_text_voice"
-                            ).innerHTML =
-                              "<div class='the_activeintent_loading'>Listening </div>");
-                        });
-                    }),
+              t.recognition &&
+                document
+                  .getElementById("microphone")
+                  .addEventListener("click", function () {
+                    if (1 === o)
+                      return (o = 0), console.log(o, "111111111"), e.stop();
+                    var t = document.querySelectorAll(
+                      ".the_activeintent_voice_flex.the_activeintent_display_none"
+                    );
+                    t.length > 0 &&
+                      t[0].classList.remove("the_activeintent_display_none"),
+                      (document.getElementById(
+                        "the_activeintent_text_voice"
+                      ).innerHTML =
+                        "Enable permissions on the upper left of your browser window"),
+                      console.log(o, "log log"),
+                      e.start(),
+                      (o = 1),
+                      console.log(o, "log log 2"),
+                      (e.onstart = function () {
+                        var e = document.getElementsByClassName(
+                          "the_activeintent_voice_flex"
+                        );
+                        e.length > 0 &&
+                          (e[0].className +=
+                            " the_activeintent_voice_flex_top_0");
+                        var t = document.getElementsByClassName(
+                          "the_activeintent_right_svg"
+                        );
+                        t.length > 0 &&
+                          (t[0].className +=
+                            " the_activeintent_right_svg_none");
+                        var n = document.getElementsByClassName(
+                          "the_activeintent_avatar"
+                        );
+                        n.length > 0 &&
+                          (n[0].className += " the_activeintent_avatar_voice"),
+                          (document.getElementById(
+                            "the_activeintent_text_voice"
+                          ).innerHTML =
+                            "<div class='the_activeintent_loading'>Listening </div>");
+                      });
+                  }),
                 setInterval(function () {
                   var e = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
                     t = /Chrome/i.test(navigator.userAgent);

@@ -23,6 +23,10 @@
   }
 }
 
+.the_activeintent_avatar::after {
+  animation-delay: 1s;
+}
+
 .the_activeintent_avatar_voice::before,
 .the_activeintent_avatar_voice::after {
   animation: pulse 2s linear infinite;
@@ -38,10 +42,6 @@
   transform: scale(0.714);
   width: 90px;
   z-index: 1;
-}
-
-.the_activeintent_avatar::after {
-  animation-delay: 1s;
 }
 
 .the_activeintent_loading:after {
@@ -92,7 +92,7 @@
 .the_activeintent_right_svg {
   position: absolute;
   right: -25px;
-  bottom: -5px;
+  bottom: 0px;
 }
 
 .the_activeintent_right_svg_none {
