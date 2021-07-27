@@ -417,9 +417,7 @@
                     .getElementById("microphone")
                     .addEventListener("click", function () {
                       if (
-                        (alert("bibibibi"),
-                        console.log(o, "TUS TUS TUS"),
-                        1 === o)
+                        (alert("bibibibi"), console.log(o, "log log"), 1 === o)
                       )
                         return (o = 0), e.stop();
                       var t = document.querySelectorAll(
