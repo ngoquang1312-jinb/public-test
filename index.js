@@ -276,19 +276,19 @@
                             .concat(e.textContent.trim(), "\r\n");
                         }));
                   } else {
-                    var l = document.querySelector(
+                    var g = document.querySelector(
                       "[og-intent='" + c.name + "']"
                     );
-                    null !== l && void 0 !== l && (s = l.textContent.trim());
+                    null !== g && void 0 !== g && (s = g.textContent.trim());
                   }
                 else if (
                   void 0 === c &&
                   void 0 !== e &&
                   "ArticleIntent" === e.name
                 ) {
-                  var g = document.querySelectorAll("article h1"),
+                  var l = document.querySelectorAll("article h1"),
                     v = [];
-                  g.forEach(function (e) {
+                  l.forEach(function (e) {
                     v.push(e.textContent.trim());
                   });
                   var u = i.findBestMatch(a, v);
@@ -411,51 +411,53 @@
             }),
             _defineProperty(this, "addListener", function () {
               var e = t.recognition;
-              t.recognition &&
-                document
-                  .getElementById("microphone")
-                  .addEventListener("click", function () {
-                    if (
-                      (alert("bibibibi"),
-                      console.log(o, "TUS TUS TUS"),
-                      1 === o)
-                    )
-                      return (o = 0), e.stop();
-                    var t = document.querySelectorAll(
-                      ".the_activeintent_voice_flex.the_activeintent_display_none"
-                    );
-                    t.length > 0 &&
-                      t[0].classList.remove("the_activeintent_display_none"),
-                      (document.getElementById(
-                        "the_activeintent_text_voice"
-                      ).innerHTML =
-                        "Enable permissions on the upper left of your browser window"),
-                      e.start(),
-                      (o = 1),
-                      (e.onstart = function () {
-                        var e = document.getElementsByClassName(
-                          "the_activeintent_voice_flex"
-                        );
-                        e.length > 0 &&
-                          (e[0].className +=
-                            " the_activeintent_voice_flex_top_0");
-                        var t = document.getElementsByClassName(
-                          "the_activeintent_right_svg"
-                        );
-                        t.length > 0 &&
-                          (t[0].className +=
-                            " the_activeintent_right_svg_none");
-                        var n = document.getElementsByClassName(
-                          "the_activeintent_avatar"
-                        );
-                        n.length > 0 &&
-                          (n[0].className += " the_activeintent_avatar_voice"),
-                          (document.getElementById(
-                            "the_activeintent_text_voice"
-                          ).innerHTML =
-                            "<div class='the_activeintent_loading'>Listening </div>");
-                      });
-                  }),
+              console.log(e, "recognitionrecognition"),
+                t.recognition &&
+                  document
+                    .getElementById("microphone")
+                    .addEventListener("click", function () {
+                      if (
+                        (alert("bibibibi"),
+                        console.log(o, "TUS TUS TUS"),
+                        1 === o)
+                      )
+                        return (o = 0), e.stop();
+                      var t = document.querySelectorAll(
+                        ".the_activeintent_voice_flex.the_activeintent_display_none"
+                      );
+                      t.length > 0 &&
+                        t[0].classList.remove("the_activeintent_display_none"),
+                        (document.getElementById(
+                          "the_activeintent_text_voice"
+                        ).innerHTML =
+                          "Enable permissions on the upper left of your browser window"),
+                        e.start(),
+                        (o = 1),
+                        (e.onstart = function () {
+                          var e = document.getElementsByClassName(
+                            "the_activeintent_voice_flex"
+                          );
+                          e.length > 0 &&
+                            (e[0].className +=
+                              " the_activeintent_voice_flex_top_0");
+                          var t = document.getElementsByClassName(
+                            "the_activeintent_right_svg"
+                          );
+                          t.length > 0 &&
+                            (t[0].className +=
+                              " the_activeintent_right_svg_none");
+                          var n = document.getElementsByClassName(
+                            "the_activeintent_avatar"
+                          );
+                          n.length > 0 &&
+                            (n[0].className +=
+                              " the_activeintent_avatar_voice"),
+                            (document.getElementById(
+                              "the_activeintent_text_voice"
+                            ).innerHTML =
+                              "<div class='the_activeintent_loading'>Listening </div>");
+                        });
+                    }),
                 setInterval(function () {
                   var e = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
                     t = /Chrome/i.test(navigator.userAgent);
