@@ -406,9 +406,7 @@
                         )[0].style.display = "block"),
                         1 === i)
                       )
-                        return (
-                          console.log("\u0110ang n\xf3i"), (i = 0), e.stop()
-                        );
+                        return (i = 0), e.stop();
                       e.start(), (i = 1);
                     });
                   }
