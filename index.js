@@ -334,23 +334,23 @@
                       p = _createForOfIteratorHelper(c.phrases);
                     try {
                       for (p.s(); !(l = p.n()).done; ) {
-                        var B = l.value;
-                        a = a.replace(B, "");
+                        var m = l.value;
+                        a = a.replace(m, "");
                       }
                     } catch (v) {
                       p.e(v);
                     } finally {
                       p.f();
                     }
-                    var m,
+                    var B,
                       h = _createForOfIteratorHelper(
                         document.querySelectorAll(
                           "[og-intent='" + c.name + "']"
                         )
                       );
                     try {
-                      for (h.s(); !(m = h.n()).done; ) {
-                        var f = m.value;
+                      for (h.s(); !(B = h.n()).done; ) {
+                        var f = B.value;
                         a.trim().toLowerCase() ===
                           f.textContent.trim().toLowerCase() && f.click();
                       }
@@ -411,34 +411,35 @@
               }
             }),
             _defineProperty(this, "addListener", function () {
-              var e = n.recognition;
+              var e = n.recognition,
+                t = !1;
               if (n.recognition) {
                 navigator.permissions
                   .query({ name: "microphone" })
                   .then(function (e) {
-                    console.log("HIHI", e);
+                    "granted" == e.state
+                      ? (t = !1)
+                      : "prompt" == e.state && (t = !0);
                   });
-                var t,
-                  i = _createForOfIteratorHelper(
+                var i,
+                  o = _createForOfIteratorHelper(
                     document.querySelectorAll("#microphone")
                   );
                 try {
-                  for (i.s(); !(t = i.n()).done; ) {
-                    t.value.addEventListener("click", function () {
-                      if (
-                        ((document.getElementsByClassName(
+                  for (o.s(); !(i = o.n()).done; ) {
+                    i.value.addEventListener("click", function () {
+                      t &&
+                        (document.getElementsByClassName(
                           "the_activeintent_permission"
-                        )[0].style.display = "block"),
-                        1 === r)
-                      )
-                        return (r = 0), e.stop();
+                        )[0].style.display = "block");
+                      if (1 === r) return (r = 0), e.stop();
                       e.start(), (r = 1);
                     });
                   }
-                } catch (c) {
-                  i.e(c);
+                } catch (s) {
+                  o.e(s);
                 } finally {
-                  i.f();
+                  o.f();
                 }
               }
               setInterval(function () {
@@ -446,23 +447,23 @@
                   n = /Chrome/i.test(navigator.userAgent);
                 !e && n && speechSynthesis.pause(), speechSynthesis.resume();
               }, 1e4);
-              var o,
-                a = _createForOfIteratorHelper(
+              var a,
+                c = _createForOfIteratorHelper(
                   document.querySelectorAll(".speaker")
                 );
               try {
-                for (a.s(); !(o = a.n()).done; ) {
-                  o.value.addEventListener("click", function () {
+                for (c.s(); !(a = c.n()).done; ) {
+                  a.value.addEventListener("click", function () {
                     speechSynthesis.cancel();
                     var e =
                       this.parentElement.parentElement.parentElement.textContent.trim();
                     speechSynthesis.speak(new SpeechSynthesisUtterance(e));
                   });
                 }
-              } catch (c) {
-                a.e(c);
+              } catch (s) {
+                c.e(s);
               } finally {
-                a.f();
+                c.f();
               }
             }),
             (this.intents = e),
