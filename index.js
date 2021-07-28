@@ -260,14 +260,12 @@
                 )[0].style.display = "none";
               }),
                 (n.recognition.onaudiostart = function () {
-                  document.getElementsByClassName(
+                  (document.getElementsByClassName(
                     "the_activeintent_listening"
-                  )[0].style.display = "block";
-                  var e = document.getElementsByClassName(
-                    "the_activeintent_image"
-                  )[0];
-                  (e.src = "https://i.ibb.co/GpLfcMy/record.gif"),
-                    (e.style.width = "70px"),
+                  )[0].style.display = "block"),
+                    (document.getElementsByClassName(
+                      "the_activeintent_image"
+                    )[0].style.display = "inline-block"),
                     (window.dotsGoingUp = !0),
                     window.setInterval(function () {
                       var e = document.getElementsByClassName(
@@ -315,16 +313,16 @@
                     "ArticleIntent" === e.name
                   ) {
                     var u = document.querySelectorAll("article h1"),
-                      w = [];
+                      d = [];
                     u.forEach(function (e) {
-                      w.push(e.textContent.trim());
+                      d.push(e.textContent.trim());
                     });
-                    var d = i.findBestMatch(a, w);
+                    var w = i.findBestMatch(a, d);
                     s =
-                      0 !== d.bestMatchIndex
+                      0 !== w.bestMatchIndex
                         ? document
                             .querySelectorAll("article p")
-                            [d.bestMatchIndex].textContent.trim()
+                            [w.bestMatchIndex].textContent.trim()
                         : "No Articles found with ".concat(a);
                   } else s = "We haven't set it up";
                   if (
@@ -378,12 +376,10 @@
                     )[0].style.display = "none"),
                     (document.getElementsByClassName(
                       "the_activeintent_listening"
+                    )[0].style.display = "none"),
+                    (document.getElementsByClassName(
+                      "the_activeintent_image"
                     )[0].style.display = "none");
-                  var e = document.getElementsByClassName(
-                    "the_activeintent_image"
-                  )[0];
-                  (e.src = "https://i.ibb.co/SnsCnd6/Group-2.png"),
-                    (e.style.width = "60px");
                 }),
                 (n.recognition.onerror = function (e) {
                   r = 0;
@@ -392,7 +388,7 @@
             _defineProperty(this, "addMicrophoneElement", function () {
               var e = document.createElement("div");
               (e.innerHTML =
-                '<div class="the_activeintent" style="position: fixed;bottom: 20%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div style="position: absolute;right: 100%;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 25px;width: 198px;outline: none;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px;outline: none;display:none">Listening<span class="the_activeintent_int" style="padding-left:5px">.</span></div></div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;outline: none;"><img class="the_activeintent_image" src="https://i.ibb.co/SnsCnd6/Group-2.png" width="60px" /></button></div></div></div>'),
+                '<div class="the_activeintent" style="position: fixed;bottom: 8%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div style="position: absolute;right: 100%;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 40px;width: 198px;outline: none;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px;outline: none;display:none">Listening<span class="the_activeintent_int" style="padding-left:5px">.</span></div></div><div style="position: relative;top: -12px;"><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;outline: none;"><img src="https://i.ibb.co/SnsCnd6/Group-2.png" style="position: relative;z-index: 1;right: 10px;top: 10px;"/><img class="the_activeintent_image" src="https://i.ibb.co/GpLfcMy/record.gif" style="position: absolute;width: 92px;right: 0;display:none"  /></button></div></div></div>'),
                 document.body.appendChild(e);
             }),
             _defineProperty(this, "addSpeakerElements", function () {
