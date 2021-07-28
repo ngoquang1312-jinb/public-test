@@ -217,7 +217,7 @@
             if (!(e instanceof n))
               throw new TypeError("Cannot call a class as a function");
           })(this, App),
-            _defineProperty(this, "activationKey", void 0),
+            _defineProperty(this, "activationkey", void 0),
             _defineProperty(this, "usingSDKRequest", function () {
               window.location.hostname, new XMLHttpRequest();
               n.recognition &&
@@ -474,8 +474,8 @@
               this.speechRecognitionList.addFromString("#JSGF V1.0;", 1),
               (this.recognition.grammars = this.speechRecognitionList));
           var t = window.document.getElementById("ActiveIntent");
-          t && (this.activationKey = t.getAttribute("activationKey")),
-            this.activationKey && this.usingSDKRequest();
+          t && (this.activationkey = t.getAttribute("activationkey")),
+            this.activationkey && this.usingSDKRequest();
         };
       n.default = o;
     },
