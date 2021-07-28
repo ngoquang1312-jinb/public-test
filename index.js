@@ -388,7 +388,7 @@
             _defineProperty(this, "addMicrophoneElement", function () {
               var e = document.createElement("div");
               (e.innerHTML =
-                '<div class="the_activeintent" style="position: fixed;bottom: 8%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div style="position: absolute;right: 100%;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 40px;width: 198px;outline: none;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;width: 198px;outline: none;display:none">Listening<span class="the_activeintent_int" style="padding-left:5px">.</span></div></div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;outline: none;display:flex;align-items:center"><img src="https://i.ibb.co/SnsCnd6/Group-2.png" style="position:absolute;right: 9px"/><img class="the_activeintent_image" src="https://i.ibb.co/9rW6Wrf/Frame3.gif" width="89px" style="opacity:0"  /></button></div></div></div>'),
+                '<div class="the_activeintent" style="position: fixed;bottom: 8%;right: 5%;"><div style="display:flex;color: #515151;align-items: center;"><div style="position: absolute;right: 100%;"><div class="the_activeintent_permission"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 45px;position: relative;bottom: 40px;width: 198px;outline: none;display:none">Enable permissions on <br> the upper left of your <br> browser window<div style="position: absolute;right: -30px;bottom: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="20" viewBox="0 0 69 20">              <path id="Polygon_1" data-name="Polygon 1" d="M34.5,0,69,20H0Z" fill="#eaeef5" />            </svg> </div></div><div class="the_activeintent_listening"style="background: #EAEEF5;padding: 18px;border-radius: 13px;margin-right: 20px;width: 198px;outline: none;display:none">Listening<span class="the_activeintent_int" style="padding-left:5px">.</span></div></div><div><button id="microphone" style="padding: 0;border: none;background: none;cursor: pointer;outline: none;display:flex;align-items:center"><img src="https://i.ibb.co/SnsCnd6/Group-2.png" style="position:absolute;right: 9px"/><img class="the_activeintent_image" src="https://i.ibb.co/9rW6Wrf/Frame3.gif" width="89px" style="opacity:0"  /></button></div></div></div>'),
                 document.body.appendChild(e);
             }),
             _defineProperty(this, "addSpeakerElements", function () {
@@ -429,6 +429,7 @@
                   for (o.s(); !(i = o.n()).done; ) {
                     i.value.addEventListener("click", function () {
                       t &&
+                        1 !== r &&
                         (document.getElementsByClassName(
                           "the_activeintent_permission"
                         )[0].style.display = "block");
