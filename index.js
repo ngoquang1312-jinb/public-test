@@ -398,11 +398,14 @@
                 );
               try {
                 for (t.s(); !(e = t.n()).done; ) {
-                  var n = e.value;
-                  console.log(n, "element"), (n.style.color = "blue");
+                  var n = e.value,
+                    r = document.createElement("div");
+                  (r.innerHTML = "HI HI"),
+                    (r.className = "speaker"),
+                    n.parentNode.insertBefore(r, n);
                 }
-              } catch (r) {
-                t.e(r);
+              } catch (i) {
+                t.e(i);
               } finally {
                 t.f();
               }
@@ -446,9 +449,9 @@
                 for (a.s(); !(o = a.n()).done; ) {
                   o.value.addEventListener("click", function () {
                     speechSynthesis.cancel();
-                    var e =
-                      this.parentElement.parentElement.parentElement.textContent.trim();
-                    speechSynthesis.speak(new SpeechSynthesisUtterance(e));
+                    speechSynthesis.speak(
+                      new SpeechSynthesisUtterance("Hi hi")
+                    );
                   });
                 }
               } catch (s) {
